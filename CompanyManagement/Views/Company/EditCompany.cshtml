@@ -1,0 +1,23 @@
+﻿@model (CompanyViewModel company, string returnUrl)
+@{
+    ViewData["Title"] = "Edit Company";
+}
+
+<div>
+    <form asp-controller="Company" asp-action="SaveChanges" method="post">
+        <partial name="CompanyFormData" model="@Model.company" />
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" name="returnUrl" value="@Model.returnUrl" />
+        <div class="text-center">
+            <a class="btn btn-primary" href="@Model.returnUrl">Back</a>
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,23 @@
+﻿@model (EmployeeViewModel employee, string returnUrl)
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<div>
+    <form asp-controller="Employee" asp-action="SaveChanges" method="post">
+        <partial name="EmployeeFormData" model="@Model.employee"/>
+        <input type="hidden" name="returnUrl" value="@Model.returnUrl" />
+        <div class="text-center">
+            <a class="btn btn-primary" href="@Model.returnUrl">Back</a>
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{ 
+    <partial name="_ValidationScriptsPartial" />
+}

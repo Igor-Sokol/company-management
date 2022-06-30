@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Startup.cs~RF783d548.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess.SqlServer\DataAccess.SqlServer.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\Company\" />
+    <Folder Include="Views\Shared\Employee\" />
+  </ItemGroup>
+
+</Project>

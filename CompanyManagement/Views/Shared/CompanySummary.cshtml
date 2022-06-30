@@ -1,0 +1,29 @@
+﻿@model CompanyViewModel
+
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.LFO</td>
+    <td>
+        <form asp-action="EditCompany" asp-controller="Company" method="post">
+            <input type="hidden" asp-for="Id">
+            <input type="hidden" asp-for="Name">
+            <input type="hidden" asp-for="LFO">
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.Path.ToString()" />
+            <button type="submit" class="btn btn-primary btn-sm pull-right">
+                Edit
+            </button>
+        </form>
+    </td>
+    <td>
+        <form asp-action="DeleteCompany" asp-controller="Company" method="post">
+            <input type="hidden" asp-for="Id">
+            <input type="hidden" asp-for="Name">
+            <input type="hidden" asp-for="LFO">
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.Path.ToString()" />
+            <button type="submit" class="btn btn-danger btn-sm pull-right">
+                Delete
+            </button>
+        </form>
+    </td>
+</tr>

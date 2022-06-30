@@ -1,0 +1,30 @@
+﻿@model EmployeeListViewModel
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronymic</th>
+            <th>Hire Date</th>
+            <th>Post</th>
+            <th>Company</th>
+            <th style="width: 5%"></th>
+            <th style="width: 5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <partial name="EmployeeSummary" model="employee" />
+        }
+    </tbody>
+</table>
+<div>
+    <page-link page-info="Model.PageInfo" button-class="btn" button-normal-class="btn-outline-dark" button-selected-class="btn-primary" button-group-class="btn-group pull-right m-1" page-action="Index" />
+    <a class="btn btn-success float-right" asp-controller="Employee" asp-action="AddEmployee" asp-route-returnUrl="@ViewContext.HttpContext.Request.Path.ToString()">Add Employee</a>
+</div>

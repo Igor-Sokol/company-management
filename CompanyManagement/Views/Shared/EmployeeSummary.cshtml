@@ -1,0 +1,45 @@
+﻿@model EmployeeViewModel
+
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.Surname</td>
+    <td>@Model.Patronymic</td>
+    <td>@Model.HireDate.ToString("dd/MM/yy")</td>
+    <td>@Model.Post</td>
+    <td>@Model.Company.Name</td>
+    <td>
+        <form asp-action="EditEmployee" asp-controller="Employee" method="post">
+            <input type="hidden" asp-for="Id">
+            <input type="hidden" asp-for="Name">
+            <input type="hidden" asp-for="Surname">
+            <input type="hidden" asp-for="Patronymic">
+            <input type="hidden" asp-for="HireDate">
+            <input type="hidden" asp-for="Post">
+            <input type="hidden" asp-for="Company.Id">
+            <input type="hidden" asp-for="Company.Name">
+            <input type="hidden" asp-for="Company.LFO">
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.Path.ToString()" />
+            <button type="submit" class="btn btn-primary btn-sm pull-right">
+                Edit
+            </button>
+        </form>
+    </td>
+    <td>
+        <form asp-action="DeleteEmployee" asp-controller="Employee" method="post">
+            <input type="hidden" asp-for="Id">
+            <input type="hidden" asp-for="Name">
+            <input type="hidden" asp-for="Surname">
+            <input type="hidden" asp-for="Patronymic">
+            <input type="hidden" asp-for="HireDate">
+            <input type="hidden" asp-for="Post">
+            <input type="hidden" asp-for="Company.Id">
+            <input type="hidden" asp-for="Company.Name">
+            <input type="hidden" asp-for="Company.LFO">
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.Path.ToString()" />
+            <button type="submit" class="btn btn-danger btn-sm pull-right">
+                Delete
+            </button>
+        </form>
+    </td>
+</tr>

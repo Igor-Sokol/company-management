@@ -1,0 +1,26 @@
+﻿@model CompanyListViewModel
+@{ 
+    ViewData["Title"] = "Companies";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>LFO</th>
+            <th style="width: 5%"></th>
+            <th style="width: 5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model.Companies)
+        {
+            <partial name="CompanySummary" model="company" />
+        }
+    </tbody>
+</table>
+<div>
+    <page-link page-info="Model.PageInfo" button-class="btn" button-normal-class="btn-outline-dark" button-selected-class="btn-primary" button-group-class="btn-group pull-right m-1" page-action="Index" />
+    <a class="btn btn-success float-right" asp-controller="Company" asp-action="AddCompany" asp-route-returnUrl="@ViewContext.HttpContext.Request.Path.ToString()">Add Company</a>
+</div>

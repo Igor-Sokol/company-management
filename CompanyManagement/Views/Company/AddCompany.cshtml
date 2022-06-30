@@ -1,0 +1,23 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Add Company";
+}
+
+<div>
+    <form asp-controller="Company" asp-action="AddCompany" method="post">
+        <partial name="CompanyFormData" model="@null" />
+        <input type="hidden" name="returnUrl" value="@Model" />
+        <div class="text-center">
+            <a class="btn btn-primary" href="@Model">Back</a>
+            <button type="submit" class="btn btn-success">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

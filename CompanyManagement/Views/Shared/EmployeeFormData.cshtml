@@ -1,0 +1,34 @@
+﻿@model EmployeeViewModel
+
+<div class="validation" asp-validation-summary="ModelOnly"></div>
+<input type="hidden" asp-for="Id" />
+<div class="form-group">
+    <label asp-for="Name"></label><br />
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Surname"></label><br />
+    <input asp-for="Surname" class="form-control" />
+    <span asp-validation-for="Surname" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Patronymic"></label><br />
+    <input asp-for="Patronymic" class="form-control" />
+    <span asp-validation-for="Patronymic" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Post"></label><br />
+    <select asp-for="Post" asp-items="Html.GetEnumSelectList<Post>()" class="form-control"></select>
+    <span asp-validation-for="Post" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="HireDate"></label><br />
+    <input asp-for="HireDate" value="@Model?.HireDate.ToString("yyyy-MM-dd")" class="form-control" />
+    <span asp-validation-for="HireDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label>Company</label><br />
+    <select asp-for="Company.Id" asp-items="@new SelectList(@ViewData["Companies"] as IEnumerable<CompanyViewModel>, nameof(CompanyViewModel.Id), nameof(CompanyViewModel.Name))"
+            name="Company.Id" class="form-control"></select>
+</div>
